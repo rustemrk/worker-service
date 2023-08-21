@@ -1,0 +1,262 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/"
+                  xmlns:tns="urn:sap-com:document:sap:rfc:functions"
+                  targetNamespace="urn:sap-com:document:sap:rfc:functions">
+    <wsdl:documentation>
+        <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl"/>
+    </wsdl:documentation>
+    <wsdl:types>
+        <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+            <xsd:simpleType name="char1">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="1"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char10">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="10"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char120">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="120"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char140">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="140"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char20">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="20"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char4">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="4"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char40">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="40"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char445">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="445"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char45">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="45"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char50">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="50"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char60">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="60"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char8">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="8"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="char80">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="80"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="date10">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="10"/>
+                    <xsd:pattern value="\d\d\d\d-\d\d-\d\d"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="decimal6.2">
+                <xsd:restriction base="xsd:decimal">
+                    <xsd:totalDigits value="6"/>
+                    <xsd:fractionDigits value="2"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="numeric8">
+                <xsd:restriction base="xsd:string">
+                    <xsd:maxLength value="8"/>
+                    <xsd:pattern value="\d*"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:complexType name="ZSBC_MIM_PERSSHARE">
+                <xsd:sequence>
+                    <xsd:element name="PERNR" type="tns:numeric8"/>
+                    <xsd:element name="PERID" type="tns:char20"/>
+                    <xsd:element name="PHONE_INT" type="tns:char50"/>
+                    <xsd:element name="CITY" type="tns:char50"/>
+                    <xsd:element name="OFFICE" type="tns:char8"/>
+                    <xsd:element name="ABSENCE" type="tns:char4"/>
+                    <xsd:element name="PRESENCE" type="tns:char4"/>
+                    <xsd:element name="DATE_BEG_HOSP" type="tns:char10"/>
+                    <xsd:element name="DATE_BEG_VAC" type="tns:char10"/>
+                    <xsd:element name="DATE_END_HOSP" type="tns:char10"/>
+                    <xsd:element name="DATE_END_VAC" type="tns:char10"/>
+                    <xsd:element name="DATE_HIRE" type="tns:char10"/>
+                    <xsd:element name="DATE_BIRTH" type="tns:char10"/>
+                    <xsd:element name="DATE_TERM" type="tns:char10"/>
+                    <xsd:element name="DURATION_VAC" type="tns:decimal6.2"/>
+                    <xsd:element name="AWART_VAC" type="tns:char4"/>
+                    <xsd:element name="AWART_NAME_VAC" type="tns:char40"/>
+                    <xsd:element name="HOMO_NAME" type="tns:char40"/>
+                    <xsd:element name="CODE_POS" type="tns:numeric8"/>
+                    <xsd:element name="CODE_ORG" type="tns:numeric8"/>
+                    <xsd:element name="CODE_BRANCH" type="tns:char4"/>
+                    <xsd:element name="PHONE_MOB" type="tns:char40"/>
+                    <xsd:element name="MAIL" type="tns:char60"/>
+                    <xsd:element name="NAME_POS" type="tns:char120"/>
+                    <xsd:element name="NAME_ORG" type="tns:char140"/>
+                    <xsd:element name="NAME_BRANCH" type="tns:char140"/>
+                    <xsd:element name="PHONE_MAIN" type="tns:char40"/>
+                    <xsd:element name="HOMO_PATRONYMIC" type="tns:char40"/>
+                    <xsd:element name="FLAG_FULLTIME" type="tns:char1"/>
+                    <xsd:element name="FLAG_GPH" type="tns:char1"/>
+                    <xsd:element name="USER_LEADER" type="tns:numeric8"/>
+                    <xsd:element name="STATUS" type="tns:char1"/>
+                    <xsd:element name="TABNUM" type="tns:numeric8"/>
+                    <xsd:element name="STREET_HOME" type="tns:char140"/>
+                    <xsd:element name="HOMO_SURNAME" type="tns:char40"/>
+                    <xsd:element name="DEPT1" type="tns:char445"/>
+                    <xsd:element name="DEPT2" type="tns:char445"/>
+                    <xsd:element name="DEPT3" type="tns:char445"/>
+                    <xsd:element name="DEPT4" type="tns:char445"/>
+                    <xsd:element name="DEPT5" type="tns:char445"/>
+                    <xsd:element name="DEPT6" type="tns:char445"/>
+                    <xsd:element name="DEPT7" type="tns:char445"/>
+                    <xsd:element name="DEPT8" type="tns:char445"/>
+                    <xsd:element name="DEPTID1" type="tns:char45"/>
+                    <xsd:element name="DEPTID2" type="tns:char45"/>
+                    <xsd:element name="DEPTID3" type="tns:char45"/>
+                    <xsd:element name="DEPTID4" type="tns:char45"/>
+                    <xsd:element name="DEPTID5" type="tns:char45"/>
+                    <xsd:element name="DEPTID6" type="tns:char45"/>
+                    <xsd:element name="DEPTID7" type="tns:char45"/>
+                    <xsd:element name="DEPTID8" type="tns:char45"/>
+                    <xsd:element name="SHORTDEPT1" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT2" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT3" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT4" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT5" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT6" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT7" type="tns:char80"/>
+                    <xsd:element name="SHORTDEPT8" type="tns:char80"/>
+                    <xsd:element name="CEO0" type="tns:char80"/>
+                    <xsd:element name="CEO1" type="tns:char80"/>
+                    <xsd:element name="CEO2" type="tns:char80"/>
+                    <xsd:element name="CEO3" type="tns:char80"/>
+                    <xsd:element name="CEO4" type="tns:char80"/>
+                    <xsd:element name="CEO5" type="tns:char80"/>
+                    <xsd:element name="CEOFULL0" type="tns:char445"/>
+                    <xsd:element name="CEOFULL1" type="tns:char445"/>
+                    <xsd:element name="CEOFULL2" type="tns:char445"/>
+                    <xsd:element name="CEOFULL3" type="tns:char445"/>
+                    <xsd:element name="CEOFULL4" type="tns:char445"/>
+                    <xsd:element name="CEOFULL5" type="tns:char445"/>
+                    <xsd:element name="ZZ_NACHN_RU_I" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_RU_I" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_RU_I" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_KZ_R" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_KZ_R" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACHN_KZ_D" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_KZ_D" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_KZ_D" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACHN_KZ_V" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_KZ_V" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_KZ_V" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACHN_KZ_T" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_KZ_T" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_KZ_T" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACHN_KZ_P" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_KZ_P" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_KZ_P" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACHN_KZ_K" type="tns:char40"/>
+                    <xsd:element name="ZZ_VORNA_KZ_K" type="tns:char40"/>
+                    <xsd:element name="ZZ_NACH2_KZ_K" type="tns:char40"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ZSBC_MIM_PERSSHARE_T">
+                <xsd:sequence>
+                    <xsd:element name="item" type="tns:ZSBC_MIM_PERSSHARE" minOccurs="0" maxOccurs="unbounded"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="ZBC_MIM_PERS_SHARE">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="BUKRS" type="tns:char4" minOccurs="0"/>
+                        <xsd:element name="DATUM" type="tns:date10"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="ZBC_MIM_PERS_SHAREResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ET_RESULT" type="tns:ZSBC_MIM_PERSSHARE_T"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="ZBC_MIM_PERS_SHARE">
+        <wsdl:part name="parameters" element="tns:ZBC_MIM_PERS_SHARE"/>
+    </wsdl:message>
+    <wsdl:message name="ZBC_MIM_PERS_SHAREResponse">
+        <wsdl:part name="parameter" element="tns:ZBC_MIM_PERS_SHAREResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="ZWS_MIM_PERS_SHARE">
+        <wsdl:operation name="ZBC_MIM_PERS_SHARE">
+            <wsdl:input message="tns:ZBC_MIM_PERS_SHARE"/>
+            <wsdl:output message="tns:ZBC_MIM_PERS_SHAREResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ZWS_MIM_PERS_SHARE" type="tns:ZWS_MIM_PERS_SHARE">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="ZBC_MIM_PERS_SHARE">
+            <soap:operation
+                    soapAction="urn:sap-com:document:sap:rfc:functions:ZWS_MIM_PERS_SHARE:ZBC_MIM_PERS_SHARERequest"
+                    style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="ZWS_MIM_PERS_SHARE_soap12" type="tns:ZWS_MIM_PERS_SHARE">
+        <wsoap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="ZBC_MIM_PERS_SHARE">
+            <wsoap12:operation
+                    soapAction="urn:sap-com:document:sap:rfc:functions:ZWS_MIM_PERS_SHARE:ZBC_MIM_PERS_SHARERequest"
+                    style="document"/>
+            <wsdl:input>
+                <wsoap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <wsoap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ZWS_MIM_PERS_SHARE">
+        <wsdl:port name="ZWS_MIM_PERS_SHARE" binding="tns:ZWS_MIM_PERS_SHARE">
+            <soap:address
+                    location="http://MacBook-Air-Rustem.local:8081/mockZWS_MIM_PERS_SHARE"/>
+        </wsdl:port>
+        <wsdl:port name="ZWS_MIM_PERS_SHARE_soap12" binding="tns:ZWS_MIM_PERS_SHARE_soap12">
+            <wsoap12:address
+                    location="http://MacBook-Air-Rustem.local:8081/mockZWS_MIM_PERS_SHARE"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

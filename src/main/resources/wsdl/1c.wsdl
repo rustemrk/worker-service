@@ -1,0 +1,123 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+             xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://1c_zup/persons"
+             xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+             xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsd1="http://1c_zup/persons" name="PersonsData"
+             targetNamespace="http://1c_zup/persons">
+    <types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xs1="http://1c_zup/persons"
+                   targetNamespace="http://1c_zup/persons" attributeFormDefault="unqualified"
+                   elementFormDefault="qualified">
+            <xs:complexType name="Person">
+                <xs:attribute name="PhoneMain" type="xs:string"/>
+                <xs:attribute name="PhoneInt" type="xs:string"/>
+                <xs:attribute name="PhoneMob" type="xs:string"/>
+                <xs:attribute name="DateBegHosp" type="xs:string"/>
+                <xs:attribute name="DateBegVac" type="xs:string"/>
+                <xs:attribute name="DateEndHosp" type="xs:string"/>
+                <xs:attribute name="DateEndVac" type="xs:string"/>
+                <xs:attribute name="DateHire" type="xs:string"/>
+                <xs:attribute name="DateBirth" type="xs:string"/>
+                <xs:attribute name="DateTerm" type="xs:string"/>
+                <xs:attribute name="DurationVac" type="xs:string"/>
+                <xs:attribute name="AwartVac" type="xs:string"/>
+                <xs:attribute name="AwartNameVac" type="xs:string"/>
+                <xs:attribute name="HomoName" type="xs:string"/>
+                <xs:attribute name="CodePos" type="xs:string"/>
+                <xs:attribute name="CodeOrg" type="xs:string"/>
+                <xs:attribute name="CodeBranch" type="xs:string"/>
+                <xs:attribute name="Mail" type="xs:string"/>
+                <xs:attribute name="NamePos" type="xs:string"/>
+                <xs:attribute name="NameOrg" type="xs:string"/>
+                <xs:attribute name="NameBranch" type="xs:string"/>
+                <xs:attribute name="HomoPatronymic" type="xs:string"/>
+                <xs:attribute name="FlagFulltime" type="xs:string"/>
+                <xs:attribute name="FlagGph" type="xs:string"/>
+                <xs:attribute name="UserLeader" type="xs:string"/>
+                <xs:attribute name="Status" type="xs:string"/>
+                <xs:attribute name="Tabnum" type="xs:string"/>
+                <xs:attribute name="StreetHome" type="xs:string"/>
+                <xs:attribute name="HomoSurname" type="xs:string"/>
+                <xs:attribute name="Ceo0" type="xs:string"/>
+                <xs:attribute name="Ceo1" type="xs:string"/>
+                <xs:attribute name="Ceo2" type="xs:string"/>
+                <xs:attribute name="Ceo3" type="xs:string"/>
+                <xs:attribute name="Ceo4" type="xs:string"/>
+                <xs:attribute name="Ceo5" type="xs:string"/>
+                <xs:attribute name="CeoFull0" type="xs:string"/>
+                <xs:attribute name="CeoFull1" type="xs:string"/>
+                <xs:attribute name="CeoFull2" type="xs:string"/>
+                <xs:attribute name="CeoFull3" type="xs:string"/>
+                <xs:attribute name="CeoFull4" type="xs:string"/>
+                <xs:attribute name="CeoFull5" type="xs:string"/>
+                <xs:attribute name="BIN_Org" type="xs:string"/>
+                <xs:attribute name="IIN_Employee" type="xs:string"/>
+            </xs:complexType>
+            <xs:complexType name="Persons">
+                <xs:sequence>
+                    <xs:element name="Person" type="tns:Person" nillable="true" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:element name="GetListPersons">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="GetListPersonsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="return" type="tns:Persons" nillable="true"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+    <message name="GetListPersonsRequestMessage">
+        <part name="parameters" element="tns:GetListPersons"/>
+    </message>
+    <message name="GetListPersonsResponseMessage">
+        <part name="parameters" element="tns:GetListPersonsResponse"/>
+    </message>
+    <portType name="PersonsDataPortType">
+        <operation name="GetListPersons">
+            <input message="tns:GetListPersonsRequestMessage"/>
+            <output message="tns:GetListPersonsResponseMessage"/>
+        </operation>
+    </portType>
+    <binding name="PersonsDataSoapBinding" type="tns:PersonsDataPortType">
+        <soapbind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetListPersons">
+            <soapbind:operation style="document" soapAction="http://1c_zup/persons#PersonsData:GetListPersons"/>
+            <input>
+                <soapbind:body use="literal"/>
+            </input>
+            <output>
+                <soapbind:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <binding name="PersonsDataSoap12Binding" type="tns:PersonsDataPortType">
+        <soap12bind:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="GetListPersons">
+            <soap12bind:operation style="document" soapAction="http://1c_zup/persons#PersonsData:GetListPersons"/>
+            <input>
+                <soap12bind:body use="literal"/>
+            </input>
+            <output>
+                <soap12bind:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="PersonsData">
+        <port name="PersonsDataSoap" binding="tns:PersonsDataSoapBinding">
+            <documentation>
+                <wsi:Claim xmlns:wsi="http://ws-i.org/schemas/conformanceClaim/"
+                           conformsTo="http://ws-i.org/profiles/basic/1.1"/>
+            </documentation>
+            <soapbind:address location="http://172.22.10.42:8080/kusk_erp/ws/PersonsData"/>
+        </port>
+        <port name="PersonsDataSoap12" binding="tns:PersonsDataSoap12Binding">
+            <soap12bind:address location="http://172.22.10.42:8080/kusk_erp/ws/PersonsData"/>
+        </port>
+    </service>
+</definitions>
